@@ -1,4 +1,4 @@
-# Devops-Challenge
+# Devops Challenge
 Hello,\
 Welcome to Mechademy !\
 Candidate needs to fork this repo and work on it further, for the given task.
