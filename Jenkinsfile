@@ -12,9 +12,7 @@ pipeline {
         choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
-environment {
-        def name = "my name"
-        def pwdv = ""
+       
     }
     stages {
         stage('Clean Workspace') {
@@ -29,7 +27,7 @@ environment {
                 
             }
         }
-         stage('Gmkdir') {
+        stage('Gmkdir') {
             steps {
                 sh "mkdir -p abc/ghi/xyz"
                 // timeout(time: 10, unit: 'SECONDS') {
@@ -67,14 +65,14 @@ environment {
             }
         }
        
-         stage('maven')
+        stage('maven'){
            steps{
                script{
                   sh ("maven clean")
                   sh ("maven package")
                }
            }
-       
+        }
         stage('Loop') {
             steps {
                 echo 'Hello World'
