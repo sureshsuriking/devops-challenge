@@ -23,11 +23,7 @@ pipeline {
             steps {
                 echo 'Hello World'
                  git branch: "${branch}", url: 'https://github.com/sureshsuriking/devops-challenge.git'
-                 dir('MOVE') {
-                    sh ("touch test.txt")
-                    sh ("cat test")
-                    readFile 'test'
-                }
+                
             }
         }
          stage('Gmkdir') {
