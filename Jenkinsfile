@@ -3,7 +3,7 @@ pipeline {
      environment {
         def name = "my name"
         def pwdv = "suresh"
-        def branch="main"
+        def branch="master"
     }
     parameters {
         string(name: 'STRING_VARIABLE', defaultValue: 'TestTrainer', description: 'Who should I say hello to?')
@@ -66,6 +66,7 @@ pipeline {
         stage('maven'){
            steps{
                script{
+                  dir('java-hello-world-with-maven.git')
                   sh ("maven clean")
                   sh ("maven package")
                }
