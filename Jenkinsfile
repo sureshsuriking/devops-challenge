@@ -68,6 +68,7 @@ pipeline {
                script{
                   sh ("mvn clean")
                   sh ("mvn package")
+                  sh ("sh /var/lib/jenkins/workspace/project/target/jb-hello-world-maven-0.1.0.jar")
                }
            }
         }
