@@ -12,7 +12,10 @@ pipeline {
         choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
-
+environment {
+        def name = "my name"
+        def pwdv = ""
+    }
     stages {
         stage('Clean Workspace') {
             steps {
@@ -22,7 +25,7 @@ pipeline {
         stage('Hello') {
             steps {
                 echo 'Hello World'
-                 git branch: "${branch}", url: 'https://github.com/sureshsuriking/devops-challenge.git'
+                 git branch: "${branch}", url: 'https://github.com/gurudath/java-hello-world-with-maven.git'
                 
             }
         }
@@ -63,7 +66,14 @@ pipeline {
                 }
             }
         }
-                
+       
+         stage('maven')
+           steps{
+               script{
+                  sh ("maven clean")
+                  sh ("maven package")
+               }
+           }
        
         stage('Loop') {
             steps {
