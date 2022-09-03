@@ -84,17 +84,7 @@ pipeline {
                 }
             }
         }
-         stage('Confirm button') {
-            steps {
-                input 'Please confirm'
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '3c1b6eec-6ada-407b-8b69-dc3f27bc9bf6', url: 'https://gitlab.com/suresh61deepu/git.git']]])
-                withCredentials([string(credentialsId: 'aws', variable: 'SECRET_TEXT')]) {
-                sh("echo $SECRET_TEXT")
-                }
-               
-                sh("echo asdasdasd")
-            }
-        }
+         
        
         stage('Loop') {
             steps {
@@ -108,22 +98,7 @@ pipeline {
                 }
             }
         }
-         stage('Parallel Stage') {
-            // when { branch 'master' }
-            failFast true
-            parallel {
-                stage('Branch A') {
-                    steps {
-                        echo " Branch A"
-                    }
-                }
-                stage('Branch B') {
-                    steps {
-                        echo "On Branch B"
-                    }
-                }
-		    }
-	    }
+         
 	    
     }
 }
