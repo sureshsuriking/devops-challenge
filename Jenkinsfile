@@ -22,7 +22,7 @@ pipeline {
         stage('Hello') {
             steps {
                 echo 'Hello World'
-                 git branch: "${branch}", url: 'https://github.com/Arvind9719/hello-world.git'
+                 git branch: "${branch}", url: 'https://github.com/sureshsuriking/devops-challenge.git'
                  dir('MOVE') {
                     sh ("touch test.txt")
                     sh ("cat test")
