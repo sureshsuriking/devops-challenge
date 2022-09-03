@@ -67,24 +67,7 @@ pipeline {
                 }
             }
         }
-        stage('Validate') {
-            // when { branch 'master' }	
-            steps {
-                script {
-                    if("${STRING_VARIABLE}" == "TestTrainer") {
-                        error 'Triggered error'
-                    } else {
-                        echo "The input was different from TestTrainer so proceeding"
-                    }
-                     if("${CHOICE}" == "Three") {
-                        error 'Triggered error'
-                    } else {
-                        echo "The input was different from TestTrainer so proceeding"
-                    }
-                }
-            }
-        }
-         
+                
        
         stage('Loop') {
             steps {
